@@ -10,7 +10,7 @@ const Todos = ({
   setTodos,
   category,
   setCategory,
-  filteredTodos
+  myTodos
 }) => {
   // Handling Input Text Value
   const inputTextHandler = e => {
@@ -52,7 +52,7 @@ const Todos = ({
         />
         <button
           type="submit"
-          style={{ flex: '1', border: '1px solid rgba(0, 0, 0, 0.1)', backgroundColor: 'rgba(7, 40, 63, 0.7)', color: '#fff', fontWeight: '550' }}
+          style={{ flex: '1', border: '1px solid rgba(0, 0, 0, 0.1)', backgroundColor: 'rgba(7, 40, 63, 1)', color: '#fff', fontWeight: '550' }}
         >
           Add Todo
         </button>
@@ -68,9 +68,9 @@ const Todos = ({
         <option value="uncompleted">Uncompleted</option>
       </select>
 
-      <ul style={{ width: '50%', margin: '1rem auto', listStyle: 'none', color: '#007bff', fontWeight: '550' }}>
+      <ul style={{ margin: '1rem 0', listStyle: 'none', color: '#fff', fontWeight: '550', padding: '0' }}>
         {
-          filteredTodos.map(todo =>
+          myTodos.map(todo =>
             <Todo todo={ todo }  todos={ todos } setTodos={ setTodos } key={ todo.id } />
           )
         }

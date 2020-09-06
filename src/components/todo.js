@@ -17,7 +17,7 @@ const Todo = ({ todo, todos, setTodos } ) => {
   return (
     <li style={{
       margin: '0.2rem 0',
-      backgroundColor: 'rgba(44, 86, 130, 0.5)',
+      backgroundColor: 'rgba(7, 40, 63, 1)',
       padding: '0.3rem',
       display: 'flex',
       alignItems: 'center',
@@ -29,7 +29,10 @@ const Todo = ({ todo, todos, setTodos } ) => {
         flex: '1',
         textAlign: 'left',
         margin: '0',
-        padding: '0 0.5rem'
+        padding: '0 0.5rem',
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis'
       }}>
         { todo.title }
       </p>

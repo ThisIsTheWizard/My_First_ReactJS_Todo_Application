@@ -14,6 +14,7 @@ const App = () => {
   const [ todos, setTodos ] = useState([]);
   const [ category, setCategory ] = useState("all");
   const [ filteredTodos, setFilteredTodos ] = useState([]);
+  const [ myTodos, setMyTodos ] = useState([]);
 
   // Using Effect For Filtering Todos
   useEffect(() => {
@@ -37,7 +38,12 @@ const App = () => {
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
       .then(json => setTodos(json));
-  }, [])
+  }, []);
+
+  // Sorting Todos
+  useEffect(() => {
+    setMyTodos(filteredTodos.sort((a, b) => a.id < b.id));
+  }, [ filteredTodos ]);
 
   return (
     <Router>
@@ -55,7 +61,7 @@ const App = () => {
                   setTodos={ setTodos }
                   category={ category }
                   setCategory={ setCategory }
-                  filteredTodos={ filteredTodos }
+                  myTodos={ myTodos }
                 />
               </div>
             </Route>
