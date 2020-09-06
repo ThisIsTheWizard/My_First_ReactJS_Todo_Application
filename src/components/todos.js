@@ -10,7 +10,7 @@ const Todos = ({
   setTodos,
   category,
   setCategory,
-  myTodos
+  filteredTodos
 }) => {
   // Handling Input Text Value
   const inputTextHandler = e => {
@@ -70,7 +70,7 @@ const Todos = ({
 
       <ul style={{ margin: '1rem 0', listStyle: 'none', color: '#fff', fontWeight: '550', padding: '0' }}>
         {
-          myTodos.map(todo =>
+          filteredTodos.sort((a, b)=> a.id < b.id).map(todo =>
             <Todo todo={ todo }  todos={ todos } setTodos={ setTodos } key={ todo.id } />
           )
         }

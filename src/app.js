@@ -14,7 +14,6 @@ const App = () => {
   const [ todos, setTodos ] = useState([]);
   const [ category, setCategory ] = useState("all");
   const [ filteredTodos, setFilteredTodos ] = useState([]);
-  const [ myTodos, setMyTodos ] = useState([]);
 
   // Using Effect For Filtering Todos
   useEffect(() => {
@@ -40,11 +39,6 @@ const App = () => {
       .then(json => setTodos(json));
   }, []);
 
-  // Sorting Todos
-  useEffect(() => {
-    setMyTodos(filteredTodos.sort((a, b) => a.id < b.id));
-  }, [ filteredTodos ]);
-
   return (
     <Router>
       <div className="layout" style={{ textAlign: 'center' }}>
@@ -61,7 +55,7 @@ const App = () => {
                   setTodos={ setTodos }
                   category={ category }
                   setCategory={ setCategory }
-                  myTodos={ myTodos }
+                  filteredTodos={ filteredTodos }
                 />
               </div>
             </Route>

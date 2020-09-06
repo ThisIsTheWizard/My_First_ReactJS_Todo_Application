@@ -1,10 +1,12 @@
 import React from "react";
 
 const Todo = ({ todo, todos, setTodos } ) => {
+  // Delete Todo
   const deleteTodo = () => {
     setTodos(todos.filter(t => t.id !== todo.id));
   }
 
+  // Toggle Completed Value
   const completeTodo = () => {
     setTodos(todos.map(t => {
       if (t.id === todo.id) {
